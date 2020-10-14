@@ -8,6 +8,15 @@
 
 import UIKit
 
+// MARK: - First Responder Status
+// when you tap a text field, it becomes the "first responder" to keyboard events
+// only way to get rid of the keyboard, is to have the text field "resign as first responder"
+// where and when to do this?
+// 1. tap on the background view
+// need a UITapGestureRecognizer to do this
+// 2. user presses the return key
+// need a UITextFieldDelegate
+
 class ViewController: UIViewController {
     
     @IBOutlet var label: UILabel!
@@ -22,6 +31,11 @@ class ViewController: UIViewController {
                 label.text = "Enter text below"
             }
         }
+    }
+    
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        print("background tapped")
+        textField.resignFirstResponder()
     }
 
     override func viewDidLoad() {
