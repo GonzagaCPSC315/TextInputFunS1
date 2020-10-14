@@ -19,7 +19,7 @@ class ViewController: UIViewController {
                 label.text = text
             }
             else {
-                label.text = "Enter text here"
+                label.text = "Enter text below"
             }
         }
     }
