@@ -30,6 +30,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="textFieldEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="YYX-ad-UqL"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="o9M-g2-URX"/>
                                         </connections>
                                     </textField>
                                 </subviews>

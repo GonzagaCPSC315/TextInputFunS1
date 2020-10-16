@@ -17,7 +17,26 @@ import UIKit
 // 2. user presses the return key
 // need a UITextFieldDelegate
 
-class ViewController: UIViewController {
+// MARK: - Delegation
+// delegation is a design pattern
+// target action is a design pattern for handling a single event (e.g. callback)
+// delegation is an OOP approach to event handling
+
+// example for text field
+// UITextField has a protocol called UITextFieldDelegate that has several optional callback methods in it
+// a class like ViewController can conform to this protocol
+// then implement the callbacks that it is interested in
+// callbacks that notify the delegate about information changes
+// callbacks that ask the delegate what to do (return Bool)
+// ex: textFieldShouldReturn() -> Bool
+
+// steps to setup delegation
+// 1. ViewController conforms to UITextFieldDelegate protocol
+// 2. let the textfield know about its delegate (ViewController)
+// 3. ViewController provides implementations for the callbacks that it is interested in
+
+
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var label: UILabel!
     @IBOutlet var textField: UITextField!
@@ -43,6 +62,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // this callback is executed when the user presses the return key on the keypad
+        textField.resignFirstResponder()
+        return true
+    }
 
 }
 
